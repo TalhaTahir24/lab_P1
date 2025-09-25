@@ -1,52 +1,28 @@
-name: Setup and Run
+name: Setup Runner and Install Docker
 
 on:
-  workflow_dispatch:  # manual run
+  workflow_dispatch:  # manually run
   push:
     branches:
       - dev
       - main
 
 jobs:
-  check-and-install-docker:
-    runs-on: self-hosted  # aapka runner isi machine pe hai
+  setup:
+    runs-on: self-hosted
     steps:
-      - name: Check if Docker is installed
-        id: check_docker
-        run: |
-          if command -v docker &> /dev/null
-          then
-            echo "docker_installed=true" >> $GITHUB_ENV
-          else
-            echo "docker_installed=false" >> $GITHUB_ENV
-          fi
-
-      - name: Install Docker if missing
-        if: env.docker_installed == 'false'
-        run: |
-          echo "Docker not found. Installing..."
-          sudo apt-get update -y
-          sudo apt-get install -y ca-certificates curl gnupg lsb-release
-
-          # Add Docker’s official GPG key
-          sudo mkdir -p /etc/apt/keyrings
-          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-
-          # Setup stable repo
-          echo \
-            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-            $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-          sudo apt-get update -y
-          sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-          echo "Docker installed successfully."
-          docker --version
-
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run something with Docker
+      - name: Check & Install Docker
         run: |
-          echo "Running docker ps just to test"
-          docker ps
+          echo "🔎 Checking if Docker is installed..."
+          if command -v docker &> /dev/null
+          then
+            echo "✅ Docker is already installed: $(docker --version)"
+          else
+            echo "⚠️ Docker not found. Installing..."
+            curl -fsSL https://get.docker.com | sh
+            echo "✅ Docker installation completed."
+            docker --version
+          fi
