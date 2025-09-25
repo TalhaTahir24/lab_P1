@@ -1,0 +1,18 @@
+# github action to deploy haproxy in container
+name: Deploy_Haproxy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy_haproxy:
+    runs-on: [self-hosted]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy HAProxy container
+        run: |
+          docker network create haproxy || true
+          docker-compose -f docker/Haproxy/compose.yml up -d
+          
