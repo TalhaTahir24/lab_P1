@@ -17,5 +17,5 @@ jobs:
       - name: Deploy HAProxy container
         run: |
           docker network create haproxy || true
-          docker-compose -f docker/Haproxy/compose.yml up -d
+          docker compose -f docker/Haproxy/compose.yml up -d
           
