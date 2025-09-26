@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docker/Haproxy/**'
+      - '.github/workflows/Deploy_Haproxy.yaml'
 jobs:
   deploy_haproxy:
     runs-on: [self-hosted]

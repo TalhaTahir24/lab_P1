@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - dev
-      - main
+    paths:
+      - '.github/workflows/check_install_docker.yaml'
 
 jobs:
   setup:
