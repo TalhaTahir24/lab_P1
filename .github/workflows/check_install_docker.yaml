@@ -1,0 +1,29 @@
+name: Setup Runner and Install Docker
+
+on:
+  workflow_dispatch:  # manually run
+  push:
+    branches:
+      - dev
+    paths:
+      - '.github/workflows/check_install_docker.yaml'
+
+jobs:
+  setup:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check & Install Docker
+        run: |
+          echo "🔎 Checking if Docker is installed..."
+          if command -v docker &> /dev/null
+          then
+            echo "✅ Docker is already installed: $(docker --version)"
+          else
+            echo "⚠️ Docker not found. Installing..."
+            curl -fsSL https://get.docker.com | sh
+            echo "✅ Docker installation completed."
+            docker --version
+          fi
