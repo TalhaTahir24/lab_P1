@@ -17,4 +17,4 @@ jobs:
 
       - name: Deploy Traefik container
         run: |
-          docker-compose -f docker/traefik/compose.yml up -d
+          docker compose -f docker/traefik/compose.yml up -d
