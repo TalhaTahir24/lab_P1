@@ -9,8 +9,7 @@ on:
       - '.github/workflows/Deploy_web1.yaml'
 jobs:
   deploy:
-    runs-on: 
-      - [self-hosted]
+    runs-on:  [self-hosted]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
