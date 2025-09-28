@@ -1,0 +1,14 @@
+# compose file for web service
+services:
+  web:
+    image: "nginx:latest"
+    container_name: "web1"
+    restart: unless-stopped
+    volumes:
+      - ./code:/usr/share/nginx/html:ro
+    networks:
+      - haproxy
+
+networks:
+  haproxy:
+    external: true

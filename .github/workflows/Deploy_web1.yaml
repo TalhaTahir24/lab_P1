@@ -1,0 +1,20 @@
+# workflow file for deploying web1 service
+name: Deploy web1 Service
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/web/**'
+      - '.github/workflows/Deploy_web1.yaml'
+jobs:
+  deploy:
+    runs-on: 
+      - [self-hosted]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy web1 service
+        run: |
+          docker compose -f docker/web/compose.yml up -d
