@@ -1,0 +1,15 @@
+http:
+  routers:
+     traefik:
+        entryPoints:
+          - web
+        rule: "Host(`traefik.tt.local`)"
+        service: traefik-service
+
+  services:
+     traefik-service:
+        loadBalancer:
+           servers:
+              - url: "http://traefik:8080"
+
+
