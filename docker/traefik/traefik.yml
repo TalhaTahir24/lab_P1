@@ -1,0 +1,45 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+api:
+  dashboard: true
+  insecure: true
+
+log:
+  filePath: "/var/log/traefik.log"
+  format: json
+  level: "ERROR"
+
+accessLog:
+  filePath: "/var/log/tf-access.log"
+  format: "json"
+
+providers:
+  file:
+     directory: "/etc/traefik/dynamic"
+     watch: true
+
+serversTransport:
+  insecureSkipVerify: true
+
+entryPoints:
+  web:
+     address: ":80"
+
+  websecure:
+     address: ":443"
+
+  metrics:
+     address: ":8082"
+
+metrics:
+  prometheus:
+     entryPoint: "metrics"
+     buckets:
+        - 0.1
+        - 0.3
+        - 1.2
+        - 5.0
+     addEntryPointsLabels: true
+     addServicesLabels: true
