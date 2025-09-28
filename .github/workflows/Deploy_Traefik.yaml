@@ -1,0 +1,20 @@
+# # github action to deploy traefik in container
+name: Deploy_Traefik
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/traefik/traefik.yml'
+      - 'docker/traefik/compose.yml'
+      - '.github/workflows/Deploy_Traefik.yaml'
+jobs:
+  deploy_traefik:
+    runs-on: [self-hosted]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Traefik container
+        run: |
+          docker-compose -f docker/traefik/compose.yml up -d
