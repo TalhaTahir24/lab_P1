@@ -3,40 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT.Locals · cloud infrastructure portfolio</title>
+    <!-- Font Awesome 6 (free) for clean icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Main CSS file -->
     <link rel="stylesheet" href="style.css">
-    <title>TT.LOCALs -- Welcome</title>
 </head>
 <body>
-    <header>
-        <h1>TT.LOCALs - Business</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-        </nav>
+    <!-- header / navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>TT.Locals</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home">home</a></li>
+                    <li><a href="#expertise">expertise</a></li>
+                    <li><a href="#projects">projects</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <section class="hero">
-        <h2>Welcome to TT.LOCALs</h2>
-        <p>Your trusted partner for local business solutions. We connect communities and empower growth.</p>
-    </section>
-    <section class="features">
-        <div class="feature">
-            <h3>Local Expertise</h3>
-            <p>Our team understands your community and delivers tailored solutions for your business needs.</p>
+
+    <main>
+        <!-- HERO / home section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>cloud infrastructure <span class="accent-word">built different</span></h1>
+                    <p>TT.Locals architects resilient, high‑performance cloud platforms — from hybrid solutions to global scale. We make infrastructure invisible, so you can focus on what matters.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">cloud nodes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99.99%</span>
+                            <span class="stat-label">uptime SLA</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">intelligent ops</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">discuss your build</a>
+                        <a href="#projects" class="btn btn-outline">see case studies →</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- abstract illustration representing cloud network -->
+                    <i class="fas fa-circle-nodes"></i>
+                    <i class="fas fa-shield-halos"></i>
+                    <i class="fas fa-globe"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- expertise / services -->
+        <section id="expertise" class="expertise">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">what we do</span>
+                    <h2>cloud infrastructure expertise</h2>
+                    <p class="section-description">From bare metal to serverless, we design, build and operate cloud native environments tailored for performance and resilience.</p>
+                </div>
+                <div class="expertise-grid">
+                    <div class="card">
+                        <i class="fas fa-cubes"></i>
+                        <h3>hybrid & multi‑cloud</h3>
+                        <p>AWS, Azure, GCP, on‑prem — we unify them into a single, secure fabric with consistent networking and policies.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-shield"></i>
+                        <h3>zero‑trust security</h3>
+                        <p>Zero‑trust architecture, automated compliance, and real‑time threat detection built into every layer of your stack.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-gauge-high"></i>
+                        <h3>high‑performance networking</h3>
+                        <p>Global anycast, SD‑WAN, and custom BGP configurations. We reduce latency and packet loss for distributed workloads.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-rotate"></i>
+                        <h3>infrastructure as code</h3>
+                        <p>Fully automated pipelines using Terraform, Crossplane, and Kubernetes operators. Infrastructure that evolves with Git.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>scalable platform engineering</h3>
+                        <p>Internal developer platforms, service meshes, and auto‑scaling clusters. Your team ships faster, infra stays stable.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 site reliability</h3>
+                        <p>SLI/SLO driven observability, on‑call readiness, and blameless post‑mortems. We keep your systems always on.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- featured projects (portfolio) -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">selected work</span>
+                    <h2>infrastructure that powers progress</h2>
+                    <p class="section-description">Real‑world cloud builds for fintech, healthtech, and global SaaS.</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-lock"></i></div>
+                        <div class="project-content">
+                            <h3>secure payment mesh</h3>
+                            <p class="project-tags">fintech · hybrid cloud · PCI DSS</p>
+                            <p class="project-description">Designed a multi‑region Kubernetes mesh with zero‑trust mTLS and real-time fraud detection. 99.99% uptime for payment processing.</p>
+                            <a href="#" class="project-link">case study <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-dna"></i></div>
+                        <div class="project-content">
+                            <h3>genomics data lake</h3>
+                            <p class="project-tags">healthcare · GCP · HITRUST</p>
+                            <p class="project-description">Scalable data lake for petabyte‑scale genomic sequencing. Automated lifecycle policies and cost‑optimized object storage.</p>
+                            <a href="#" class="project-link">case study <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+                        <div class="project-content">
+                            <h3>real‑time game backend</h3>
+                            <p class="project-tags">gaming · edge · 50M users</p>
+                            <p class="project-description">Global edge deployment with Redis clusters and WebSocket brokers. 40ms p99 latency across NA/EU/APAC.</p>
+                            <a href="#" class="project-link">case study <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- extra mini portfolio piece: two smaller highlights -->
+                <div class="mini-showcase">
+                    <div class="mini-item">
+                        <i class="fas fa-database"></i>
+                        <div><strong>disaster recovery</strong> for a european bank – RTO 15min</div>
+                    </div>
+                    <div class="mini-item">
+                        <i class="fas fa-microchip"></i>
+                        <div><strong>edge AI inference</strong> platform, 200+ edge locations</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- contact / cta -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-text">
+                        <h2>ready to build something resilient?</h2>
+                        <p>Let’s talk about your cloud infrastructure goals. No sales pitch, just engineering.</p>
+                        <div class="contact-details">
+                            <span><i class="fas fa-envelope"></i> hello@ttlocals.cloud</span>
+                            <span><i class="fas fa-phone-alt"></i> +1 (415) 555‑8686</span>
+                            <span><i class="fas fa-map-pin"></i> SF / NYC / remote</span>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="name / company" required>
+                        <input type="email" placeholder="email" required>
+                        <textarea rows="3" placeholder="tell us about your infrastructure needs..."></textarea>
+                        <button type="submit" class="btn btn-primary">send message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>TT.Locals</span>
+            </div>
+            <div class="footer-links">
+                <a href="#home">home</a>
+                <a href="#expertise">expertise</a>
+                <a href="#projects">projects</a>
+                <a href="#contact">contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="x"><i class="fab fa-x-twitter"></i></a>
+            </div>
         </div>
-        <div class="feature">
-            <h3>Innovative Services</h3>
-            <p>We offer a wide range of modern services to help your business thrive in a digital world.</p>
+        <div class="container copyright">
+            <p>© 2025 TT.Locals — cloud infrastructure studio. all rights reserved.</p>
         </div>
-        <div class="feature">
-            <h3>Customer Support</h3>
-            <p>Our support team is always ready to assist you with any questions or concerns.</p>
-        </div>
-    </section>
-    <h1>TT.LOCALs - Business</h1>
-    <footer>
-        &copy; 2024 TT.LOCALs. All rights reserved.
     </footer>
 </body>
 </html>
