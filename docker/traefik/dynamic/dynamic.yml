@@ -9,7 +9,7 @@ http:
       web1:
         entryPoints:
           - web
-        rule: "Host(`web1.tt.local`)"
+        rule: "Host(`web1.tt.locals`)"
         service: web1-service
 
   services:
